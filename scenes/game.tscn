@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://chphskbi8xqh0"]
+[gd_scene load_steps=12 format=3 uid="uid://chphskbi8xqh0"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ywfpd"]
 [ext_resource type="PackedScene" uid="uid://d4njli57clnyt" path="res://scenes/player.tscn" id="2_gws15"]
 [ext_resource type="AudioStream" uid="uid://bgogbgh1ixoxw" path="res://assets/music/fire.mp3" id="4_2mf0v"]
+[ext_resource type="PackedScene" uid="uid://cyw7porlhtuml" path="res://scenes/enemy_3.tscn" id="4_hi81h"]
 [ext_resource type="PackedScene" uid="uid://bh4kg56racnee" path="res://scenes/hud.tscn" id="4_n6tjm"]
 [ext_resource type="PackedScene" uid="uid://c572np0m42bra" path="res://scenes/enemy.tscn" id="4_o0a32"]
 [ext_resource type="PackedScene" uid="uid://bdjuc10tslmh4" path="res://scenes/game_over_screen.tscn" id="5_j5s67"]
@@ -13,7 +14,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ywfpd")
-enemy_scenes = Array[PackedScene]([ExtResource("4_o0a32"), ExtResource("5_spbf2")])
+enemy_scenes = Array[PackedScene]([ExtResource("4_o0a32"), ExtResource("5_spbf2"), ExtResource("4_hi81h")])
 
 [node name="Sounds" type="Node" parent="."]
 
