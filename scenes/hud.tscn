@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh4kg56racnee"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_1jipg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jv2eh"]
+font_size = 64
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_1jipg")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 91.0
+grow_horizontal = 2
+text = "SCORE
+"
+label_settings = SubResource("LabelSettings_jv2eh")
+horizontal_alignment = 1

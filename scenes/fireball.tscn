@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo7v4emaibn1"]
+
+[ext_resource type="Script" path="res://scripts/fireball.gd" id="1_mymte"]
+[ext_resource type="Texture2D" uid="uid://cvniwoyinc1s1" path="res://assets/textures/fireball.png" id="1_o5p2r"]
+
+[node name="Fireball" type="Area2D"]
+collision_layer = 5
+collision_mask = 2
+script = ExtResource("1_mymte")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o5p2r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(36, -32, 35, 33, 64, 33, 64, -32)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -33, -63, 33, -37, 33, -36, -33)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, 40)
+scale = Vector2(6.35, 0.25)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

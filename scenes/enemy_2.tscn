@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://f0mf102piyk2"]
+
+[ext_resource type="PackedScene" uid="uid://c572np0m42bra" path="res://scenes/enemy.tscn" id="1_h5rb8"]
+[ext_resource type="Texture2D" uid="uid://cpcnde53lnj5e" path="res://assets/textures/enemy2.png" id="2_tgpyl"]
+
+[node name="Enemy2" instance=ExtResource("1_h5rb8")]
+speed = 300.0
+health = 2
+worth = 2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_tgpyl")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-101.429, -17.1429, -65.7143, 15.7143, -65.7143, 30, -50, 52.8571, -31.4286, 37.1429, -25.7143, 41.4286, -25.7143, 82.8571, -2.85714, 82.8571, -2.85714, 72.8571, 4.28571, 71.4286, 4.28571, 82.8571, 24.2857, 82.8571, 25.7143, 40, 34.2857, 34.2857, 45.7143, 51.4286, 65.7143, 31.4286, 65.7143, 17.1429, 102.857, -17.1429, 102.857, -28.5714, 72.8571, -20, 67.1429, -20, 67.1429, -34.2857, 61.4286, -41.4286, 62.8571, -50, 35.7143, -52.8571, 30, -68.5714, 15.7143, -68.5714, 0, -84.2857, -12.8571, -71.4286, -28.5714, -68.5714, -37.1429, -51.4286, -60, -52.8571, -65.7143, -22.8571, -74.2857, -21.4286, -87.1429, -30, -102.857, -28.5714)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(-2.38419e-07, -97.1429)

@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://chphskbi8xqh0"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ywfpd"]
+[ext_resource type="PackedScene" uid="uid://d4njli57clnyt" path="res://scenes/player.tscn" id="2_gws15"]
+[ext_resource type="AudioStream" uid="uid://bgogbgh1ixoxw" path="res://assets/music/fire.mp3" id="4_2mf0v"]
+[ext_resource type="PackedScene" uid="uid://bh4kg56racnee" path="res://scenes/hud.tscn" id="4_n6tjm"]
+[ext_resource type="PackedScene" uid="uid://c572np0m42bra" path="res://scenes/enemy.tscn" id="4_o0a32"]
+[ext_resource type="PackedScene" uid="uid://bdjuc10tslmh4" path="res://scenes/game_over_screen.tscn" id="5_j5s67"]
+[ext_resource type="AudioStream" uid="uid://ve2amxm8qndj" path="res://assets/music/hit.mp3" id="5_rtwqe"]
+[ext_resource type="PackedScene" uid="uid://f0mf102piyk2" path="res://scenes/enemy_2.tscn" id="5_spbf2"]
+[ext_resource type="AudioStream" uid="uid://f12nagdsqlh2" path="res://assets/music/gameover.mp3" id="6_bjgf0"]
+[ext_resource type="Texture2D" uid="uid://cmo47nmvge3u5" path="res://assets/textures/parallax.png" id="6_r4wsq"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ywfpd")
+enemy_scenes = Array[PackedScene]([ExtResource("4_o0a32"), ExtResource("5_spbf2")])
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_2mf0v")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_rtwqe")
+volume_db = -1.0
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_bjgf0")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="Interface" instance=ExtResource("4_n6tjm")]
+
+[node name="GameOverScreen" parent="Interface" instance=ExtResource("5_j5s67")]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2.08165e-12, 1080)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("6_r4wsq")
+centered = false
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 810, 1080)
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 2.1
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_gws15")]
+position = Vector2(524, 989)
+
+[node name="PlayerSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(405, 985)
+
+[node name="FireballContainer" type="Node2D" parent="."]
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

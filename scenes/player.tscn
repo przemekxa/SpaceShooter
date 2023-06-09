@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4njli57clnyt"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_d1vvp"]
+[ext_resource type="Texture2D" uid="uid://d60e2u7opp3u" path="res://assets/textures/player.png" id="1_nnnuy"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_d1vvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_nnnuy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-52, 23, -52, -8, -42, -19, -41, 1, -36, 1, -35, -19, -29, -13, -28, -9, -25, -9, -25, 14, -17, 10, -20, 4, -14, -3, -17, -6, -17, -10, -15, -12, -10, -13, -7, -17, -7, -21, -11, -27, -11, -31, -7, -36, -7, -40, -3, -40, -3, -37, 3, -37, 3, -40, 7, -40, 7, -36, 10, -31, 10, -27, 7, -21, 7, -17, 11, -12, 16, -12, 17, -6, 14, -3, 19, 3, 20, 6, 17, 10, 21, 11, 24, 14, 26, 14, 25, -7, 28, -9, 28, -13, 35, -19, 36, 1, 41, 1, 41, -19, 49, -13, 49, -9, 52, -8, 52, 14, 49, 15, 49, 19, 52, 21, 46, 29, 46, 32, 39, 38, 31, 32, 31, 29, 26, 24, 26, 31, 20, 38, 20, 41, 13, 41, 13, 37, 7, 37, 0, 34, -6, 37, -12, 37, -12, 40, -19, 40, -19, 38, -26, 31, -26, 25, -31, 30, -38, 38, -45, 33)
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(0, -41)
